@@ -22,10 +22,10 @@ namespace lab6.ViewModels
             Add = ReactiveCommand.Create(() => UpdateNote(), addEnabled);
             Cancel = ReactiveCommand.Create(() => { });
         }
-        public NoteViewModel(string header, string noteText) : base()
+        public NoteViewModel(Case nt) : this()
         {
-            Name = header;
-            Text = noteText;
+            Name = nt.Header;
+            Text = nt.Text;
         }
 
         public ReactiveCommand<Unit, Case> Add { get; }

@@ -24,18 +24,27 @@ namespace lab6.ViewModels
             set => this.RaiseAndSetIfChanged(ref currentView, value);
             get => currentView;
         }
-        public void Change()
+        
+        public void Change(Case cs)
         {
-            var addView = new NoteViewModel();
-
+            NoteViewModel addView;
+            
+            if (cs==null)
+            {
+                addView = new NoteViewModel();
+            }
+            else 
+                addView = new NoteViewModel(cs);
             Observable.Merge(addView.Add, addView.Cancel.Select(_ => (Case?)null))
                 .Take(1)
                 .Subscribe(newNote =>
                 {
                     if (newNote != null)
                     {
-                        mainView.addCase(newNote);
-
+                        if(cs == null)
+                            mainView.addCase(newNote);
+                        else
+                            mainView.changeCase(cs, newNote);
                     }
                     CurrentView = mainView;
                     mainView.ChangeListByDate();
@@ -47,27 +56,13 @@ namespace lab6.ViewModels
             CurrentView = addView;
         }
 
-        /*public void Zoom()
+        public void DelItem(Case cs)
         {
-            var addView = new NoteViewModel();
+            mainView.delCase(cs);
+            mainView.ChangeListByDate();
+        }
 
-            Observable.Merge(addView.Add, addView.Cancel.Select(_ => (Case?)null))
-                .Take(1)
-                .Subscribe(newNote =>
-                {
-                    if (newNote != null)
-                    {
-                        mainView.addCase(newNote);
 
-                    }
-                    CurrentView = mainView;
-                    mainView.ChangeListByDate();
-
-                }
-                );
-
-            CurrentView = addView;
-        }*/
     }
     
     

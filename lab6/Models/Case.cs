@@ -8,8 +8,8 @@ namespace lab6.Models
 {
     public class Case
     {
-        public string Header { get; private set; }
-        public string Text { get; private set; }
+        public string Header { get; set; }
+        public string Text { get; set; }
         public Case(string header, string text)
         {
             Header = header;

@@ -11,7 +11,7 @@
 
 		<ScrollViewer VerticalScrollBarVisibility="Auto" Height="402">
 
-			<ItemsControl Items="{Binding ToDoList}" >
+			<ItemsControl Items="{Binding ToDoList}" Background="WhiteSmoke" Width="450">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>
 						<Border BorderThickness="2" BorderBrush="LightGray">
@@ -19,10 +19,11 @@
 
 								<TextBlock Text="{Binding Header}" FontSize="18" Margin="10, 0, 0, 0"
 								   Height="50" Width="327" ></TextBlock>
-								<Button Height="48">
-									<Image Source="/Assets/in_zoom.ico"/>
+								<Button Height="48" Command ="{Binding $parent[Window].DataContext.Change}" CommandParameter="{Binding}" >
+									<Image Source="/Assets/in_zoom.ico" />
 								</Button>
-								<Button Height="48" Margin="1,0,0,0">
+								<Button Height="48" Margin="1,0,0,0" Command ="{Binding $parent[Window].DataContext.DelItem}"
+										CommandParameter="{Binding}">
 									<Image Source="/Assets/trash.ico"/>
 								</Button>
 

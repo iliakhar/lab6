@@ -7,10 +7,12 @@
              x:Class="lab6.Views.NoteView">
 
 	<StackPanel>
-		<TextBox Height="50" Width="450" Text="{Binding Name}"></TextBox>
-		<TextBox Height="350" Width="450" Text="{Binding Text}"></TextBox>
+		<TextBox Height="50" Width="450" Text="{Binding Name}" Watermark="Введите название заметки"
+				 VerticalContentAlignment="Center" FontSize="18"></TextBox>
+		<TextBox Height="350" Width="450" Text="{Binding Text}" Watermark="Введите текст заметки"
+				 FontSize="18" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
 		<Button Height="50" Width="450" HorizontalContentAlignment="Center" Command="{Binding Add}"
-				VerticalContentAlignment="Center" FontSize="20">OK</Button>
+				VerticalContentAlignment="Center" FontSize="20" >OK</Button>
 		<Button Height="50" Width="450" HorizontalContentAlignment="Center" Command="{Binding Cancel}"
 				VerticalContentAlignment="Center" FontSize="20">Cancel</Button>
 	</StackPanel>
