@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="500"
+             x:Class="lab6.Views.ToDoListView">
+
+	<StackPanel>
+		<DatePicker Name="dtPicker" Width="450" Height="50" Margin="0,0,0,-1"
+					FontSize="18" SelectedDate="{Binding CurrentDate}"></DatePicker>
+
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Height="402">
+
+			<ItemsControl Items="{Binding ToDoList}" >
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border BorderThickness="2" BorderBrush="LightGray">
+							<StackPanel Orientation="Horizontal">
+
+								<TextBlock Text="{Binding Header}" FontSize="18" Margin="10, 0, 0, 0"
+								   Height="50" Width="327" ></TextBlock>
+								<Button Height="48">
+									<Image Source="/Assets/in_zoom.ico"/>
+								</Button>
+								<Button Height="48" Margin="1,0,0,0">
+									<Image Source="/Assets/trash.ico"/>
+								</Button>
+
+							</StackPanel>
+						</Border>
+
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+
+		</ScrollViewer>
+
+		<Button Height="48" Width="450" Margin="1,0,0,0" Command ="{Binding $parent[Window].DataContext.Change}">
+			<Image Source="/Assets/add.ico"/>
+		</Button>
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="500"
+			 MaxWidth="450" MaxHeight="500"
+             x:Class="lab6.Views.NoteView">
+
+	<StackPanel>
+		<TextBox Height="50" Width="450" Text="{Binding Name}"></TextBox>
+		<TextBox Height="350" Width="450" Text="{Binding Text}"></TextBox>
+		<Button Height="50" Width="450" HorizontalContentAlignment="Center" Command="{Binding Add}"
+				VerticalContentAlignment="Center" FontSize="20">OK</Button>
+		<Button Height="50" Width="450" HorizontalContentAlignment="Center" Command="{Binding Cancel}"
+				VerticalContentAlignment="Center" FontSize="20">Cancel</Button>
+	</StackPanel>
+</UserControl>
